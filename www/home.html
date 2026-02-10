@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AirSafe Monitor</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Bootstrap CSS -->
+	<link 
+		href="css/bootstrap.min.css" 
+		rel="stylesheet">
+	<link 
+		href="css/x.css" 
+		rel="stylesheet">
+
+	<!-- Chart.js -->
+	<script src="js/chart.js"></script>
+</head>
+<body>
+
+	<!-- Title Bar -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<div class="container-fluid">
+			<span class="navbar-brand">AirSafe Monitor</span>
+			<div class="dropdown ms-auto">
+				<select id="dev_list" class="x-select" onchange="connect_device(this.value)">
+					<option disabled selected>Select Device</option>
+				</select>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Tabs -->
+	<ul class="nav nav-tabs" id="scannerTabs" role="tablist">
+		<li class="nav-item" role="presentation">
+			<button class="nav-link active" id="graphs-tab" data-bs-toggle="tab" data-bs-target="#graphs" type="button" role="tab">Graphs</button>
+		</li>
+		<li class="nav-item" role="presentation">
+			<button class="nav-link" id="logs-tab" data-bs-toggle="tab" data-bs-target="#logs" type="button" role="tab">Logs</button>
+		</li>
+	</ul>
+
+	<!-- Tab Content -->
+	<div class="tab-content p-3">
+		<!-- Graphs Tab -->
+		<div class="tab-pane fade show active" id="graphs" role="tabpanel">
+			<!-- <canvas id="myChart" style="width:100%; height:300px;"></canvas> -->
+			<div id="charts" class="x-center">
+				<span id="no_graph_note">
+					No Graphs Available.<br>
+				Make sure to select the proper device (arduino,ES, etc)
+				</span>
+			</div>
+
+		</div>
+
+		<!-- Logs Tab -->
+		<div class="tab-pane fade" id="logs" role="tabpanel">
+			<div class="border p-2 x-tiny" style="height:300px; overflow-y:auto;">
+			</div>
+		</div>
+	</div>
+
+	<!-- Bootstrap JS -->
+	<script src="js/bootstrap.bundle.min.js"></script>
+
+	<script src="cordova.js"></script>
+	<script src="js/home.js"></script>
+	<script src="js/dyna_charts.js"></script>
+	<!-- Chart.js Example -->
+	<script>
+		// document.addEventListener("DOMContentLoaded", function() {
+		// 	const ctx = document.getElementById('myChart').getContext('2d');
+		// 	const myChart = new Chart(ctx, {
+		// 		type: 'line',
+		// 		data: {
+		// 			labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+		// 			datasets: [{
+		// 				label: 'Bluetooth Data',
+		// 				data: [12, 19, 3, 5, 2],
+		// 				borderColor: 'rgba(75, 192, 192, 1)',
+		// 				backgroundColor: 'rgba(75, 192, 192, 0.2)',
+		// 				fill: true,
+		// 				tension: 0.3
+		// 			}]
+		// 		},
+		// 		options: {
+		// 			responsive: true,
+		// 			maintainAspectRatio: false
+		// 		}
+		// 	});
+		// });
+	</script>
+
+</body>
+</html>
