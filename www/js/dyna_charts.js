@@ -67,6 +67,7 @@ const charts = {};
         charts[arg].update();
       }
     });
+    document.getElementById('no_graph_note').innerText = ""
   }
 
 
