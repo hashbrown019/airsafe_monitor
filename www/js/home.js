@@ -24,6 +24,12 @@
 
 document.addEventListener('deviceready', function() {
     printlog('Running cordova-' + cordova.platformId + '@' + cordova.version);
+    init_bl()
+
+
+});
+
+function init_bl(){
     printlog("Device ready, Bluetooth plugin available:", bluetoothSerial);
     // Scan for devices
     bluetoothSerial.list(function(devices) {
@@ -38,9 +44,7 @@ document.addEventListener('deviceready', function() {
         printlog("Error listing devices:", error);
         // console.error("Error listing devices:", error);
     });
-
-
-});
+}
 
 function showData(value) {
     document.getElementById("output").innerText = "Data: " + value;

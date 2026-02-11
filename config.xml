@@ -10,4 +10,20 @@
     <content src="index.html" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
+    <platform name="android">
+      <config-file parent="/*" target="AndroidManifest.xml">
+        <!-- Permissions for devices running Android 12 (API 31) or higher -->
+        <uses-permission android:name="android.permission.BLUETOOTH_SCAN" android:usesPermissionFlags="neverForLocation" tools:targetApi="s" />
+        <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+        <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+
+        <!-- Legacy permissions for devices running Android 11 (API 30) or lower -->
+        <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30" />
+        <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30" />
+
+        <!-- Needed only if your app uses Bluetooth scan results to derive physical location. -->
+        <!-- If not, you can strongly assert that your app doesn't need location permission for Bluetooth. -->
+        <!-- <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> -->
+      </config-file>
+    </platform>
 </widget>
